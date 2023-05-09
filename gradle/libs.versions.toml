@@ -1,0 +1,76 @@
+[versions]
+agp = "8.2.0-alpha02"
+kotlin = "1.8.10"
+core-ktx = "1.10.0"
+junit = "4.13.2"
+androidx-test-ext-junit = "1.1.5"
+espresso-core = "3.5.1"
+lifecycle-runtime-ktx = "2.6.1"
+activity-compose = "1.7.1"
+compose-bom = "2023.05.00"
+appcompat = "1.6.1"
+material = "1.9.0"
+coil = "2.2.2"
+retrofit = "2.9.0"
+okhtttp = "5.0.0-alpha.3"
+moshi = "1.14.0"
+moshi-kotlin = "1.9.3"
+moshi-converter = "2.9.0"
+ksp = "1.8.10-1.0.9"
+hilt = "2.45"
+androidxHilt = "1.0.0"
+androidxNavigation = "2.6.0-beta01"
+animatedNavigation = "0.31.1-alpha"
+
+[libraries]
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+ui = { group = "androidx.compose.ui", name = "ui" }
+ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+material3 = { group = "androidx.compose.material3", name = "material3" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
+
+coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+okhtttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhtttp" }
+okhtttp-logger = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhtttp" }
+
+moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi-kotlin" }
+moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
+moshi-codegen = { group = "com.squareup.moshi", name = "moshi-kotlin-codegen", version.ref = "moshi" }
+moshi-converter = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "moshi-converter" }
+
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+dagger-hilt = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "androidxHilt" }
+hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHilt" }
+
+compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
+animated-navigation = {group = "com.google.accompanist", name = "accompanist-navigation-animation", version.ref ="animatedNavigation"}
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+devtoolsKsp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kotlinKapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+hiltAndroid = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+
+[bundles]
+
+okhttp = ["okhtttp", "okhtttp-logger"]
+
+moshi = ["moshi-kotlin", "moshi", "moshi-converter"]
