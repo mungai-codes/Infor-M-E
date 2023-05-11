@@ -59,4 +59,8 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    fun updateCategory(input: Int) {
+        _uiState.update { it.copy(currentCategory = input) }
+    }
+
 }
