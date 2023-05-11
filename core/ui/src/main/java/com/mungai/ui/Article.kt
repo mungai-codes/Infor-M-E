@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.mungai.common.getFreshness
+import com.mungai.common.freshness
 import com.mungai.domain.model.Article
 
 @Composable
@@ -92,7 +92,7 @@ fun Article(
                 Pill(
                     modifier = Modifier.align(Alignment.CenterEnd),
                     icon = Icons.Rounded.Schedule,
-                    info = getFreshness(article.publishedAt)
+                    info = article.publishedAt.freshness()
                 )
             }
         }

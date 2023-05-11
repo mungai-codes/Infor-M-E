@@ -10,9 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.mungai.home.HomeScreen
 import com.mungai.infor_m_e.ui.theme.InforMETheme
-import com.mungai.search.components.SearchBar
 import com.mungai.search.SearchScreen
+import com.mungai.search.components.SearchBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,7 +23,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             InforMETheme {
-                SearchScreen()
+                //SearchScreen()
+                HomeScreen()
             }
         }
     }

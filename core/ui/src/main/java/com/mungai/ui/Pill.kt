@@ -10,6 +10,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -17,7 +19,8 @@ import androidx.compose.ui.unit.sp
 fun Pill(
     modifier: Modifier = Modifier,
     icon: ImageVector,
-    info: String
+    info: String,
+    decoration: Triple<Dp, TextUnit, Color> = Triple(13.dp, 10.sp, Color(0xFF98989B))
 ) {
     Row(
         modifier = modifier,
@@ -27,13 +30,13 @@ fun Pill(
         Icon(
             imageVector = icon,
             contentDescription = info,
-            tint = Color(0xFF98989B),
-            modifier = Modifier.size(13.dp)
+            tint = decoration.third,
+            modifier = Modifier.size(decoration.first)
         )
         Text(
             text = info,
-            fontSize = 10.sp,
-            color = Color(0xFF98989B)
+            fontSize = decoration.second,
+            color = decoration.third
         )
     }
 }

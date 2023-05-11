@@ -61,6 +61,7 @@ dependencies {
     implementation(project(":core:data"))
     implementation(project(":core:domain"))
     implementation(project(":core:ui"))
+    implementation(project(":feature:home"))
     implementation(project(":feature:search"))
 
     // dagger hilt

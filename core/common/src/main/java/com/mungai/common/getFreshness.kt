@@ -3,8 +3,8 @@ package com.mungai.common
 import java.time.Duration
 import java.time.Instant
 
-fun getFreshness(timestamp: String): String {
-    val instant = Instant.parse(timestamp)
+fun String.freshness(): String {
+    val instant = Instant.parse(this)
     val now = Instant.now()
     val duration = Duration.between(instant, now)
     val seconds = duration.seconds
