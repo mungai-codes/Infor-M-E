@@ -3,49 +3,61 @@ package com.mungai.infor_m_e
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
+import com.google.accompanist.navigation.animation.AnimatedNavHost
+import com.google.accompanist.navigation.animation.composable
+import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.mungai.home.HomeScreen
 import com.mungai.infor_m_e.ui.theme.InforMETheme
 import com.mungai.search.SearchScreen
-import com.mungai.search.components.SearchBar
 import dagger.hilt.android.AndroidEntryPoint
 
+
+@OptIn(ExperimentalAnimationApi::class)
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            InforMETheme {
-                //SearchScreen()
-                HomeScreen()
+            InforMETheme(darkTheme = true) {
+                val navController = rememberAnimatedNavController()
+                AnimatedNavHost(
+                    navController = navController,
+                    startDestination = "home"
+                ) {
+                    composable(
+                        route = "home",
+                        enterTransition = {
+                            fadeIn(animationSpec = tween(2000))
+                        }
+                    ) {
+                        HomeScreen(navController = navController)
+                    }
+                    composable(
+                        route = "search?query={query}",
+                        enterTransition = {
+                            fadeIn(animationSpec = tween(2000))
+                        },
+                        arguments = listOf(
+                            navArgument(name = "query") {
+                                type = NavType.StringType
+                            }
+                        )
+                    ) {
+                        SearchScreen()
+                    }
+                }
             }
         }
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun SearchBarPreview() {
-    InforMETheme {
-        Column(
-            modifier = Modifier
-                .fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            SearchBar(value = "", onValueChange = {}) {
-
-            }
-        }
-    }
-}
 
 
 

@@ -19,7 +19,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.mungai.common.UiEvent
 import com.mungai.search.components.Body
-import com.mungai.search.components.SearchBar
+import com.mungai.search.components.Header
+import com.mungai.ui.SearchBar
 import kotlinx.coroutines.flow.collectLatest
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -45,7 +46,14 @@ fun SearchScreen(
     }
 
     Scaffold(
-        snackbarHost = { SnackbarHost(snackbarHostState) }
+        snackbarHost = { SnackbarHost(snackbarHostState) },
+        topBar = {
+            Header(
+                onBack = {
+
+                }
+            )
+        }
     ) { innerPadding ->
 
         Column(
@@ -60,7 +68,7 @@ fun SearchScreen(
                 value = state.query,
                 onValueChange = viewModel::updateQuery,
                 onSearch = {
-                    viewModel.searchForNews()
+                    viewModel.searchForNews(state.query)
                 },
                 modifier = Modifier.padding(top = 16.dp, bottom = 8.dp)
             )

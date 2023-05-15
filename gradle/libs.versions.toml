@@ -1,5 +1,5 @@
 [versions]
-agp = "8.2.0-alpha03"
+agp = "8.0.1"
 kotlin = "1.8.10"
 core-ktx = "1.10.0"
 junit = "4.13.2"
@@ -60,7 +60,9 @@ hilt = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "android
 hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHilt" }
 
 compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
-animated-navigation = {group = "com.google.accompanist", name = "accompanist-navigation-animation", version.ref ="animatedNavigation"}
+animated-navigation = { group = "com.google.accompanist", name = "accompanist-navigation-animation", version.ref = "animatedNavigation" }
+
+compose-animation = { group = "androidx.compose.animation", name = "animation" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

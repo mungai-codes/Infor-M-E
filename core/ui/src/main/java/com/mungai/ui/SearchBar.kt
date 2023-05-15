@@ -1,4 +1,4 @@
-package com.mungai.search.components
+package com.mungai.ui
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions

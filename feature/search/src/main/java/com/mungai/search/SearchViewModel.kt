@@ -1,5 +1,6 @@
 package com.mungai.search
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mungai.common.Resource
@@ -19,7 +20,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(
-    private val repository: InformeRepository
+    private val repository: InformeRepository,
+    savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(UiState())
@@ -30,10 +32,18 @@ class SearchViewModel @Inject constructor(
 
     private var searchJob: Job? = null
 
-    fun searchForNews() {
+    init {
+        savedStateHandle.get<String>("query")?.let { query ->
+            if (query != "") {
+                searchForNews(query = query)
+            }
+        }
+    }
+
+    fun searchForNews(query: String) {
         searchJob?.cancel()
         searchJob = viewModelScope.launch {
-            repository.searchForNews(query = _uiState.value.query).onEach { result ->
+            repository.searchForNews(query = query).onEach { result ->
                 when (result) {
                     is Resource.Loading -> {
                         _uiState.update { it.copy(loading = true) }

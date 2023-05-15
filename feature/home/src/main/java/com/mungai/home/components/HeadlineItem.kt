@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.mungai.common.freshness
+import com.mungai.common.trimSentence
 import com.mungai.common.removeExtraSpaces
 import com.mungai.domain.model.Article
 import com.mungai.home.R
@@ -120,7 +121,7 @@ fun HeadlineItem(
                         article.author?.let {
                             Pill(
                                 icon = Icons.Rounded.Accessibility,
-                                info = it,
+                                info = it.removeExtraSpaces().trimSentence(),
                                 decoration = Triple(
                                     first = 15.dp,
                                     second = 15.sp,

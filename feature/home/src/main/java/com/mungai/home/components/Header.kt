@@ -13,11 +13,15 @@ import androidx.compose.material.icons.rounded.Notifications
 import androidx.compose.material.icons.rounded.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.mungai.infor_m_e.ui.theme.InforMETheme
 
 @Composable
@@ -39,6 +43,14 @@ fun Header(
         ) {
             Icon(imageVector = Icons.Rounded.Menu, contentDescription = "menu")
         }
+
+        Text(
+            text = "INFOR-M-E",
+            modifier = Modifier.align(Alignment.Center),
+            fontWeight = FontWeight.Bold,
+            fontFamily = FontFamily.SansSerif,
+            fontSize = 28.sp
+        )
 
         Row(
             modifier = Modifier

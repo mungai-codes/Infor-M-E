@@ -41,7 +41,7 @@ fun TopHeadlines(
             text = "Top Headlines",
             fontFamily = FontFamily.Serif,
             fontWeight = FontWeight.Bold,
-            fontSize = 30.sp,
+            fontSize = 25.sp,
             modifier = Modifier.padding(start = 16.dp)
         )
 

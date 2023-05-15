@@ -14,4 +14,19 @@ interface ApiService {
         @Query("searchIn") searchIn: String = "title,description",
         @Query("pageSize") pageSize: Int = 20
     ): ApiResponse
+
+    @GET("top-headlines")
+    suspend fun getTopHeadlines(
+        @Query("apikey") apiKey: String = Constants.API_KEY,
+        @Query("country") country: String = "us",
+        @Query("pageSize") pageSize: Int = 20
+    ): ApiResponse
+
+    @GET("top-headlines")
+    suspend fun getNewsByCategory(
+        @Query("apikey") apiKey: String = Constants.API_KEY,
+        @Query("country") country: String = "us",
+        @Query("category") category: String,
+        @Query("pageSize") pageSize: Int = 20
+    ): ApiResponse
 }

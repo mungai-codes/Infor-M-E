@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.kapt3.base.Kapt
-
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidLibrary)
@@ -62,6 +60,7 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.material.icons.extended)
 
+    // navigation
     implementation(libs.animated.navigation)
     implementation(libs.compose.navigation)
     implementation(libs.hilt.navigation)

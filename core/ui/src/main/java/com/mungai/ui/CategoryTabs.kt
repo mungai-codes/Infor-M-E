@@ -1,4 +1,4 @@
-package com.mungai.home.components
+package com.mungai.ui
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
@@ -6,8 +6,6 @@ import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
@@ -19,11 +17,10 @@ import com.mungai.common.Constants.categories
 
 
 @Composable
-fun Categories(
+fun CategoryTabs(
     modifier: Modifier = Modifier,
     currentCategory: Int,
-    updateCategory: (Int) -> Unit,
-    onClick: (String) -> Unit
+    updateCategory: (Int) -> Unit
 ) {
 
     ScrollableTabRow(
@@ -38,7 +35,6 @@ fun Categories(
                 selected = index == currentCategory,
                 onClick = {
                     updateCategory(index)
-                    onClick(categories[currentCategory])
                 },
                 text = {
                     Text(
@@ -53,7 +49,5 @@ fun Categories(
                 unselectedContentColor = Color(0xFF98989B)
             )
         }
-
     }
-
 }
