@@ -30,6 +30,8 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.mungai.common.freshness
+import com.mungai.common.removeExtraSpaces
+import com.mungai.common.trimSentence
 import com.mungai.domain.model.Article
 
 @Composable
@@ -74,7 +76,7 @@ fun Article(
         ) {
 
             Text(
-                text = article.title,
+                text = article.title.removeExtraSpaces(),
                 fontWeight = FontWeight.Bold,
                 fontSize = 15.sp,
                 maxLines = 3,
@@ -91,7 +93,7 @@ fun Article(
                     Pill(
                         modifier = Modifier.align(Alignment.CenterStart),
                         icon = Icons.Rounded.Attribution,
-                        info = it
+                        info = it.removeExtraSpaces().trimSentence(10)
                     )
                 }
                 Pill(
