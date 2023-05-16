@@ -98,7 +98,7 @@ fun CategoryItem(
                         Pill(
                             modifier = Modifier.align(Alignment.CenterStart),
                             icon = Icons.Rounded.Attribution,
-                            info = it.removeExtraSpaces().trimSentence()
+                            info = it.removeExtraSpaces().trimSentence(10)
                         )
                     }
                     Pill(
@@ -106,7 +106,7 @@ fun CategoryItem(
                             .align(Alignment.CenterEnd)
                             .padding(end = 4.dp),
                         icon = Icons.Rounded.Source,
-                        info = article.source.name.removeExtraSpaces().trimSentence()
+                        info = article.source.name.removeExtraSpaces().trimSentence(10)
                     )
                 }
             }

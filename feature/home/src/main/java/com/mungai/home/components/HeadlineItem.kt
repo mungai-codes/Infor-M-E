@@ -32,8 +32,8 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.mungai.common.freshness
-import com.mungai.common.trimSentence
 import com.mungai.common.removeExtraSpaces
+import com.mungai.common.trimSentence
 import com.mungai.domain.model.Article
 import com.mungai.home.R
 import com.mungai.infor_m_e.ui.theme.Ivory
