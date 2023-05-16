@@ -31,7 +31,8 @@ fun Body(
     loading: Boolean,
     emptyResults: Boolean,
     error: String?,
-    articles: List<Article>
+    articles: List<Article>,
+    onClick: (String) -> Unit
 ) {
 
     if (loading) {
@@ -97,7 +98,7 @@ fun Body(
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             items(articles, key = { article -> article.title }) { article ->
-                com.mungai.ui.Article(article = article)
+                com.mungai.ui.Article(article = article, onClick = onClick)
             }
         }
     }

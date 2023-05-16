@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavController
 import com.mungai.common.UiEvent
 import com.mungai.search.components.Body
 import com.mungai.search.components.Header
@@ -26,7 +27,8 @@ import kotlinx.coroutines.flow.collectLatest
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchScreen(
-    viewModel: SearchViewModel = hiltViewModel()
+    viewModel: SearchViewModel = hiltViewModel(),
+    navController: NavController
 ) {
 
     val state: UiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -50,7 +52,7 @@ fun SearchScreen(
         topBar = {
             Header(
                 onBack = {
-
+                    navController.popBackStack()
                 }
             )
         }
@@ -78,7 +80,10 @@ fun SearchScreen(
                 loading = state.loading,
                 emptyResults = state.emptyResults,
                 error = state.errorMessage,
-                articles = state.articles
+                articles = state.articles,
+                onClick = { url ->
+                    navController.navigate("details?url=${url}")
+                }
             )
         }
 

@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.DismissibleDrawerSheet
 import androidx.compose.material3.DrawerValue
@@ -28,6 +29,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -57,17 +59,19 @@ fun HomeScreen(
     val state: UiState by viewModel.uiState.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
-
-    val scope = rememberCoroutineScope()
-
+    val lazyListState = rememberLazyListState()
+    var scrollToTop by remember { mutableStateOf(false) }
     var isSearchVisible by remember {
         mutableStateOf(false)
     }
 
-    LaunchedEffect(key1 = state.currentCategory) {
-        viewModel.getNewsByCategory()
-    }
+    val scope = rememberCoroutineScope()
 
+    LaunchedEffect(key1 = isSearchVisible) {
+        if (isSearchVisible) {
+            scrollToTop = true
+        }
+    }
 
     ModalNavigationDrawer(
         drawerState = drawerState,
@@ -95,13 +99,15 @@ fun HomeScreen(
                     onNotifications = { /*TODO*/ },
                     onSearch = {
                         isSearchVisible = !isSearchVisible
+                        lazyListState.firstVisibleItemIndex
                     }
                 )
-            }
+            },
         ) { innerPadding ->
 
 
             LazyColumn(
+                state = lazyListState,
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(
@@ -140,7 +146,10 @@ fun HomeScreen(
                     TopHeadlines(
                         articles = state.topHeadlines,
                         loading = state.loadingTopHeadlines,
-                        error = state.topHeadlinesError
+                        error = state.topHeadlinesError,
+                        onClick = { url ->
+                            navController.navigate("details?url=${url}")
+                        }
                     )
                 }
 
@@ -148,7 +157,8 @@ fun HomeScreen(
                 item {
                     CategoryTabs(
                         currentCategory = state.currentCategory,
-                        updateCategory = viewModel::updateCategory
+                        updateCategory = viewModel::updateCategory,
+                        onSearch = { viewModel.getNewsByCategory() }
                     )
                 }
 
@@ -196,15 +206,26 @@ fun HomeScreen(
                             items(state.categoryResults) { article ->
                                 CategoryItem(
                                     modifier = Modifier.fillParentMaxWidth(fraction = 0.9f),
-                                    article = article
-                                ) {url ->
-
-                                }
+                                    article = article,
+                                    onClick = { url ->
+                                        navController.navigate("details?url=${url}")
+                                    }
+                                )
                             }
                         }
                     }
                 }
             }
+
+            SideEffect {
+                scope.launch {
+                    if (scrollToTop) {
+                        lazyListState.scrollToItem(0)
+                        scrollToTop = false
+                    }
+                }
+            }
+
         }
     }
 }

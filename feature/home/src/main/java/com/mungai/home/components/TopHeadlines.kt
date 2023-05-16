@@ -29,7 +29,8 @@ fun TopHeadlines(
     modifier: Modifier = Modifier,
     articles: List<Article>,
     loading: Boolean,
-    error: String?
+    error: String?,
+    onClick: (String) -> Unit
 ) {
 
     Column(
@@ -79,7 +80,7 @@ fun TopHeadlines(
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 items(articles, key = { it.url }) { article ->
-                    HeadlineItem(article = article)
+                    HeadlineItem(article = article, onClick = onClick)
                 }
             }
         }

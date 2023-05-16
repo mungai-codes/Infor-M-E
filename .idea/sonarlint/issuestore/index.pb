@@ -11,8 +11,6 @@ j
 :core/data/src/main/java/com/mungai/data/mappers/Mappers.kt,e\8\e8090d636bfb81d4cabcb175b124c4f714d9a641
 @
 build.gradle.kts,d\b\dbcff70658daf80b53ce624f6adcaa529df5ed8d
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 g
 7core/common/src/main/java/com/mungai/common/Resource.kt,c\9\c9168f7744fe2e7131fde754e9ba2681ec8f7749
 L
@@ -50,12 +48,8 @@ i
 9feature/search/src/main/java/com/mungai/search/UiState.kt,d\4\d457c85dc7c9a07efbcf4367e0db4cd8b23415b1
 ^
 .core/ui/src/main/java/com/mungai/ui/Shimmer.kt,8\b\8b8d7a99fccd48cc9485b77f0ea8ddc839b42b88
-b
-2core/ui/src/main/java/com/mungai/ui/theme/Color.kt,a\1\a1894a1e0ce2f3ccaf151fee172fa997aad7af9d
 [
 +core/ui/src/main/java/com/mungai/ui/Pill.kt,9\7\970f855c825c98e8a8fedda76d5d0afa4b707930
-C
-settings.gradle.kts,7\4\749edfcc96398253e5b3416184e95c46621da850
 p
 @core/common/src/main/java/com/mungai/common/removeExtraSpaces.kt,f\9\f9effe8abdc1813447fdfe7d04c4f0e4ec438bae
 k
@@ -70,15 +64,11 @@ F
 app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
 L
 core/common/build.gradle.kts,3\3\33faeab8056c945e58d920d723c6a36420381b51
-M
-feature/home/build.gradle.kts,b\e\be4e288f08b8cb3c35191b1a7d3e737f2a0057e5
 O
 feature/search/build.gradle.kts,7\e\7e9540f8954928b72a77ffcfa0647fa1e9a2fc8c
 I
 gradle/libs.versions.toml,d\7\d7595319a0658be6f1ed500ad590d42e4b28bc4f
-D
-app/build.gradle.kts,d\2\d2a4383452aad84a18429a5844d31330a012a9e6
 _
 /app/src/main/java/com/mungai/infor_m_e/MyApp.kt,5\e\5e9a7ff198d8bf121422e1f9d4006c0fcee24b57
-^
-.core/ui/src/main/java/com/mungai/ui/Article.kt,f\4\f4a4328edd3447c2847e57ee0d4daf45df917d2f
+M
+feature/home/build.gradle.kts,b\e\be4e288f08b8cb3c35191b1a7d3e737f2a0057e5

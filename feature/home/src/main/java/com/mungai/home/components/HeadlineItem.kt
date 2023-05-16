@@ -43,7 +43,7 @@ import com.mungai.ui.Pill
 fun HeadlineItem(
     modifier: Modifier = Modifier,
     article: Article,
-    onClick: (String) -> Unit = {}
+    onClick: (String) -> Unit
 ) {
 
     val context = LocalContext.current

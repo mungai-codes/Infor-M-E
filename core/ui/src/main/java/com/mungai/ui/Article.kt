@@ -1,5 +1,6 @@
 package com.mungai.ui
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -34,12 +35,16 @@ import com.mungai.domain.model.Article
 @Composable
 fun Article(
     modifier: Modifier = Modifier,
-    article: Article
+    article: Article,
+    onClick: (String) -> Unit
 ) {
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .height(100.dp),
+            .height(100.dp)
+            .clickable {
+                onClick(article.url)
+            },
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         Box(

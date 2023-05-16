@@ -20,7 +20,8 @@ import com.mungai.common.Constants.categories
 fun CategoryTabs(
     modifier: Modifier = Modifier,
     currentCategory: Int,
-    updateCategory: (Int) -> Unit
+    updateCategory: (Int) -> Unit,
+    onSearch: () -> Unit
 ) {
 
     ScrollableTabRow(
@@ -35,6 +36,7 @@ fun CategoryTabs(
                 selected = index == currentCategory,
                 onClick = {
                     updateCategory(index)
+                    onSearch()
                 },
                 text = {
                     Text(

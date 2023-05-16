@@ -11,6 +11,7 @@ import androidx.navigation.navArgument
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import com.mungai.details.DetailsScreen
 import com.mungai.home.HomeScreen
 import com.mungai.infor_m_e.ui.theme.InforMETheme
 import com.mungai.search.SearchScreen
@@ -50,7 +51,20 @@ class MainActivity : ComponentActivity() {
                             }
                         )
                     ) {
-                        SearchScreen()
+                        SearchScreen(navController = navController)
+                    }
+                    composable(
+                        route = "details?url={url}",
+                        enterTransition = {
+                            fadeIn(animationSpec = tween(2000))
+                        },
+                        arguments = listOf(
+                            navArgument(name = "url") {
+                                type = NavType.StringType
+                            }
+                        )
+                    ) {
+                        DetailsScreen(navController = navController)
                     }
                 }
             }

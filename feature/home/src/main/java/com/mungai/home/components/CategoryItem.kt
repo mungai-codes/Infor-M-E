@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.mungai.common.removeExtraSpaces
 import com.mungai.common.trimSentence
 import com.mungai.domain.model.Article
 import com.mungai.ui.Pill
@@ -85,7 +86,8 @@ fun CategoryItem(
                     fontSize = 15.sp,
                     maxLines = 3,
                     fontFamily = FontFamily.Serif,
-                    overflow = TextOverflow.Ellipsis
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.clickable { onClick(article.url) }
                 )
                 Box(
                     modifier = Modifier
@@ -96,7 +98,7 @@ fun CategoryItem(
                         Pill(
                             modifier = Modifier.align(Alignment.CenterStart),
                             icon = Icons.Rounded.Attribution,
-                            info = it.trimSentence()
+                            info = it.removeExtraSpaces().trimSentence()
                         )
                     }
                     Pill(
@@ -104,7 +106,7 @@ fun CategoryItem(
                             .align(Alignment.CenterEnd)
                             .padding(end = 4.dp),
                         icon = Icons.Rounded.Source,
-                        info = article.source.name
+                        info = article.source.name.removeExtraSpaces().trimSentence()
                     )
                 }
             }
