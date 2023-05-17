@@ -37,7 +37,6 @@ class HomeViewModel @Inject constructor(
                 when (result) {
                     is Resource.Loading -> {
                         _uiState.update { it.copy(loadingTopHeadlines = true) }
-                        delay(3000)
                     }
 
                     is Resource.Success -> {
@@ -71,7 +70,6 @@ class HomeViewModel @Inject constructor(
                     when (result) {
                         is Resource.Loading -> {
                             _uiState.update { it.copy(loadingCategoryResults = true) }
-                            delay(3000)
                         }
 
                         is Resource.Success -> {

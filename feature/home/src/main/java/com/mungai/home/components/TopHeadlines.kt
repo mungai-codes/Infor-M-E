@@ -79,7 +79,7 @@ fun TopHeadlines(
                 contentPadding = PaddingValues(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                items(articles, key = { it.url }) { article ->
+                items(articles) { article ->
                     HeadlineItem(article = article, onClick = onClick)
                 }
             }

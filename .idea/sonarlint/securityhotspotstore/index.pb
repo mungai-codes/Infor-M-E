@@ -17,14 +17,6 @@ g
 7core/common/src/main/java/com/mungai/common/Resource.kt,c\9\c9168f7744fe2e7131fde754e9ba2681ec8f7749
 f
 6app/src/main/java/com/mungai/infor_m_e/di/AppModule.kt,f\3\f3cd899c2782495dfa48150ed2a3d6a1f3e39964
-N
-core/domain/consumer-rules.pro,2\3\23ea16b140735dea0363d183f0e9bfe5e84fef9e
-L
-core/data/proguard-rules.pro,5\a\5a77cd0bc7ff80f7c8cd56ccaa9f7ad6fec0423b
-L
-core/data/consumer-rules.pro,e\3\e33528bc4a91cd5ded49226f00e59f2cbdd30943
-N
-core/common/proguard-rules.pro,e\2\e2d1a287d50f7a8e2c619b4bf08b4a74ff4b23cf
 Q
 !feature/search/proguard-rules.pro,4\e\4e3aa6ad5bef23e6df029e8843742295d144f235
 ;
@@ -33,13 +25,9 @@ Q
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 J
-core/ui/consumer-rules.pro,b\6\b63f274bb53e5ac76468af0066a19b6ce8b59428
-J
 core/ui/proguard-rules.pro,f\d\fd4af137b29863afa7299f629413ea1ef4332351
 f
 6core/common/src/main/java/com/mungai/common/UiEvent.kt,0\a\0a5f2438dfb38e0b627fc141bfb4ffb28058b4dc
-Q
-!feature/search/consumer-rules.pro,3\c\3c8029c123bee6403c4b139b8850d8d9f5ec3cdd
 J
 core/data/build.gradle.kts,f\4\f4478630ebacf5eb78d8fddbf2b884e78aef0d50
 H
@@ -50,25 +38,27 @@ i
 .core/ui/src/main/java/com/mungai/ui/Shimmer.kt,8\b\8b8d7a99fccd48cc9485b77f0ea8ddc839b42b88
 [
 +core/ui/src/main/java/com/mungai/ui/Pill.kt,9\7\970f855c825c98e8a8fedda76d5d0afa4b707930
-p
-@core/common/src/main/java/com/mungai/common/removeExtraSpaces.kt,f\9\f9effe8abdc1813447fdfe7d04c4f0e4ec438bae
-k
-;core/common/src/main/java/com/mungai/common/getFreshness.kt,7\8\78d94917c778f9bd0ed6b7a527a72cdafd0342a2
 h
 8core/common/src/main/java/com/mungai/common/Constants.kt,c\e\ce4ea1890b8c665b15a77eb6c1cd24a8b02d7ab8
-N
-core/common/consumer-rules.pro,3\1\316fdb6af84d1e3504d15aa4cfe5e29582b7feb4
 O
 feature/home/consumer-rules.pro,d\7\d7f0ed4a5a3999a8830d5a31522edb5ad85337ef
-F
-app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
 L
 core/common/build.gradle.kts,3\3\33faeab8056c945e58d920d723c6a36420381b51
-O
-feature/search/build.gradle.kts,7\e\7e9540f8954928b72a77ffcfa0647fa1e9a2fc8c
 I
 gradle/libs.versions.toml,d\7\d7595319a0658be6f1ed500ad590d42e4b28bc4f
 _
 /app/src/main/java/com/mungai/infor_m_e/MyApp.kt,5\e\5e9a7ff198d8bf121422e1f9d4006c0fcee24b57
 M
 feature/home/build.gradle.kts,b\e\be4e288f08b8cb3c35191b1a7d3e737f2a0057e5
+O
+feature/search/build.gradle.kts,7\e\7e9540f8954928b72a77ffcfa0647fa1e9a2fc8c
+k
+;core/common/src/main/java/com/mungai/common/getFreshness.kt,7\8\78d94917c778f9bd0ed6b7a527a72cdafd0342a2
+p
+@core/common/src/main/java/com/mungai/common/removeExtraSpaces.kt,f\9\f9effe8abdc1813447fdfe7d04c4f0e4ec438bae
+k
+;core/common/src/main/java/com/mungai/common/trimSentence.kt,4\d\4db7f981534b30e80f2e9bad7845dd592339fe8f
+q
+Afeature/search/src/main/java/com/mungai/search/components/Body.kt,c\9\c99dd1c615d52c667b399e9259f6b3712ea22e88
+^
+.core/ui/src/main/java/com/mungai/ui/Article.kt,f\4\f4a4328edd3447c2847e57ee0d4daf45df917d2f

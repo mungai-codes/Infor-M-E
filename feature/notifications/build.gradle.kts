@@ -1,29 +1,22 @@
-import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+import org.jetbrains.kotlin.kapt3.base.Kapt
 
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.hiltAndroid)
     alias(libs.plugins.kotlinKapt)
-    alias(libs.plugins.devtoolsKsp)
 }
 
 android {
-    namespace = "com.mungai.infor_m_e"
+    namespace = "com.mungai.notifications"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.mungai.infor_m_e"
         minSdk = 26
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -48,42 +41,17 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
     }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
 }
 
 dependencies {
 
-    implementation(project(":core:common"))
-    implementation(project(":core:data"))
     implementation(project(":core:domain"))
+    implementation(project(":core:common"))
     implementation(project(":core:ui"))
-    implementation(project(":feature:details"))
-    implementation(project(":feature:home"))
-    implementation(project(":feature:notifications"))
-    implementation(project(":feature:search"))
-
-    // dagger hilt
-    implementation(libs.hilt.android)
-    kapt(libs.dagger.hilt)
-    kapt(libs.hilt)
-
-    // navigation
-    implementation(libs.hilt.navigation)
-    implementation(libs.compose.navigation)
-    implementation(libs.animated.navigation)
-
-    // network
-    implementation(libs.retrofit)
-    implementation(libs.bundles.okhttp)
-    implementation(libs.bundles.moshi)
-    ksp(libs.moshi.codegen)
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.lifecycle.runtime.compose)
     implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
     implementation(libs.ui)
@@ -91,8 +59,17 @@ dependencies {
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
 
-    // compose - animation
-    implementation(libs.compose.animation)
+    implementation(libs.coil)
+    implementation(libs.material.icons.extended)
+
+    implementation(libs.animated.navigation)
+    implementation(libs.compose.navigation)
+    implementation(libs.hilt.navigation)
+
+    // dagger hilt
+    implementation(libs.hilt.android)
+    kapt(libs.dagger.hilt)
+    kapt(libs.hilt)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
