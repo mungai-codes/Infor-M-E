@@ -1,4 +1,4 @@
-package com.mungai.notifications
+package com.mungai.settings
 
 import org.junit.Test
 

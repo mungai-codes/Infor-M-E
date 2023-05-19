@@ -51,6 +51,8 @@ dependencies {
     kapt(libs.dagger.hilt)
     kapt(libs.hilt)
 
+    implementation(libs.datastore.preferences)
+
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

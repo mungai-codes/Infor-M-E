@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.kapt3.base.Kapt
-
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidLibrary)
@@ -9,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.mungai.notifications"
+    namespace = "com.mungai.settings"
     compileSdk = 33
 
     defaultConfig {
@@ -70,6 +68,9 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.dagger.hilt)
     kapt(libs.hilt)
+
+    implementation(libs.datastore.preferences)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

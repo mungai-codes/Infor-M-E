@@ -8,12 +8,16 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.grid.*
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.DismissibleDrawerSheet
@@ -42,6 +46,7 @@ import androidx.navigation.NavController
 import com.mungai.home.components.CategoryItem
 import com.mungai.home.components.Header
 import com.mungai.home.components.TopHeadlines
+import com.mungai.settings.SettingsScreen
 import com.mungai.ui.CategoryItemShimmer
 import com.mungai.ui.CategoryTabs
 import com.mungai.ui.SearchBar
@@ -76,11 +81,12 @@ fun HomeScreen(
         gesturesEnabled = drawerState.isOpen,
         drawerContent = {
             DismissibleDrawerSheet(
+                modifier = Modifier
+                    .height(500.dp)
+                    .padding(top = 60.dp),
                 drawerShape = RoundedCornerShape(topEnd = 12.dp, bottomEnd = 12.dp)
             ) {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text(text = "Navigation Drawer")
-                }
+                SettingsScreen(modifier = Modifier.fillMaxHeight())
             }
         }
     ) {

@@ -44,8 +44,10 @@ android {
 dependencies {
 
     implementation(project(":core:domain"))
+    implementation(project(":core:data"))
     implementation(project(":core:common"))
     implementation(project(":core:ui"))
+    implementation(project(":feature:settings"))
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)

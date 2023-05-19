@@ -1,11 +1,15 @@
 package com.mungai.infor_m_e
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.google.accompanist.navigation.animation.AnimatedNavHost
@@ -22,11 +26,36 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
         setContent {
-            InforMETheme(darkTheme = true) {
+
+            val viewModel: MainViewModel = hiltViewModel()
+            val state = viewModel.themeState.collectAsState().value
+
+            val systemTheme =
+                when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+                    Configuration.UI_MODE_NIGHT_YES -> {
+                        true
+                    }
+
+                    Configuration.UI_MODE_NIGHT_NO -> {
+                        false
+                    }
+
+                    else -> {
+                        false
+                    }
+                }
+
+            LaunchedEffect(key1 = state.isDarkTheme) {
+                viewModel.getTheme(systemTheme)
+            }
+
+
+            InforMETheme(darkTheme = state.isDarkTheme) {
                 val navController = rememberAnimatedNavController()
                 AnimatedNavHost(
                     navController = navController,
@@ -38,7 +67,9 @@ class MainActivity : ComponentActivity() {
                             fadeIn(animationSpec = tween(2000))
                         }
                     ) {
-                        HomeScreen(navController = navController)
+                        HomeScreen(
+                            navController = navController
+                        )
                     }
                     composable(
                         route = "search?query={query}",

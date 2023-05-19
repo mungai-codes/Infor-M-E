@@ -63,8 +63,8 @@ dependencies {
     implementation(project(":core:ui"))
     implementation(project(":feature:details"))
     implementation(project(":feature:home"))
-    implementation(project(":feature:notifications"))
     implementation(project(":feature:search"))
+    implementation(project(":feature:settings"))
 
     // dagger hilt
     implementation(libs.hilt.android)
@@ -81,6 +81,8 @@ dependencies {
     implementation(libs.bundles.okhttp)
     implementation(libs.bundles.moshi)
     ksp(libs.moshi.codegen)
+
+    implementation(libs.datastore.preferences)
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
