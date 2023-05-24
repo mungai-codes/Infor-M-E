@@ -12,14 +12,22 @@ import androidx.compose.runtime.collectAsState
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
+import androidx.work.Constraints
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.NetworkType
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.mungai.details.DetailsScreen
 import com.mungai.home.HomeScreen
 import com.mungai.infor_m_e.ui.theme.InforMETheme
+import com.mungai.notifications.worker.NotificationWorker
 import com.mungai.search.SearchScreen
 import dagger.hilt.android.AndroidEntryPoint
+import java.time.Duration
+import java.util.concurrent.TimeUnit
 
 
 @OptIn(ExperimentalAnimationApi::class)
@@ -28,8 +36,26 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val workManager = WorkManager.getInstance(applicationContext)
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .setRequiresDeviceIdle(true)
+            .setRequiresBatteryNotLow(true)
+            .build()
+        val notificationRequest = PeriodicWorkRequestBuilder<NotificationWorker>(
+            repeatInterval = 30,
+            TimeUnit.MINUTES
+        )
+            .addTag("notification_request")
+            .setInitialDelay(Duration.ofMinutes(30))
+            .setConstraints(constraints)
+            .build()
 
-
+        workManager.enqueueUniquePeriodicWork(
+            "notification worker",
+            ExistingPeriodicWorkPolicy.UPDATE,
+            notificationRequest
+        )
         setContent {
 
             val viewModel: MainViewModel = hiltViewModel()

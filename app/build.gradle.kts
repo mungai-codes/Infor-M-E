@@ -60,6 +60,7 @@ dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:data"))
     implementation(project(":core:domain"))
+    implementation(project(":core:notifications"))
     implementation(project(":core:ui"))
     implementation(project(":feature:details"))
     implementation(project(":feature:home"))
@@ -68,8 +69,9 @@ dependencies {
 
     // dagger hilt
     implementation(libs.hilt.android)
-    kapt(libs.dagger.hilt)
-    kapt(libs.hilt)
+    implementation(libs.hilt.work)
+    kapt(libs.hilt.android.compiler)
+    kapt(libs.hilt.compiler)
 
     // navigation
     implementation(libs.hilt.navigation)
@@ -82,7 +84,11 @@ dependencies {
     implementation(libs.bundles.moshi)
     ksp(libs.moshi.codegen)
 
+    // datastore preferences
     implementation(libs.datastore.preferences)
+
+    // work manager
+    implementation(libs.work.runtime.ktx)
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)

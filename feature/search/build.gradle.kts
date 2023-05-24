@@ -69,8 +69,8 @@ dependencies {
 
     // dagger hilt
     implementation(libs.hilt.android)
-    kapt(libs.dagger.hilt)
-    kapt(libs.hilt)
+    kapt(libs.hilt.android.compiler)
+    kapt(libs.hilt.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

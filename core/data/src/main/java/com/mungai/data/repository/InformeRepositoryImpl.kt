@@ -108,4 +108,8 @@ class InformeRepositoryImpl @Inject constructor(
             )
         }
     }
+
+    override suspend fun getNotificationArticle(): List<Article> {
+        return apiService.getTopHeadlines().articles.map { it.toArticle() }
+    }
 }

@@ -9,4 +9,5 @@ interface InformeRepository {
     fun searchForNews(query: String): Flow<Resource<List<Article>>>
     fun getNewsByCategory(category: String): Flow<Resource<List<Article>>>
     fun getTopHeadlines(): Flow<Resource<List<Article>>>
+    suspend fun getNotificationArticle(): List<Article>
 }
