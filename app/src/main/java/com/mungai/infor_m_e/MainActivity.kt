@@ -12,6 +12,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
+import androidx.navigation.navDeepLink
 import androidx.work.Constraints
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.NetworkType
@@ -22,8 +23,8 @@ import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.mungai.details.DetailsScreen
 import com.mungai.home.HomeScreen
+import com.mungai.infor_m_e.notifications.NotificationWorker
 import com.mungai.infor_m_e.ui.theme.InforMETheme
-import com.mungai.notifications.worker.NotificationWorker
 import com.mungai.search.SearchScreen
 import dagger.hilt.android.AndroidEntryPoint
 import java.time.Duration
@@ -43,11 +44,11 @@ class MainActivity : ComponentActivity() {
             .setRequiresBatteryNotLow(true)
             .build()
         val notificationRequest = PeriodicWorkRequestBuilder<NotificationWorker>(
-            repeatInterval = 30,
+            repeatInterval = 60,
             TimeUnit.MINUTES
         )
             .addTag("notification_request")
-            .setInitialDelay(Duration.ofMinutes(30))
+            .setInitialDelay(Duration.ofMinutes(15))
             .setConstraints(constraints)
             .build()
 
@@ -115,12 +116,12 @@ class MainActivity : ComponentActivity() {
                         enterTransition = {
                             fadeIn(animationSpec = tween(2000))
                         },
-                        arguments = listOf(
-                            navArgument(name = "url") {
-                                type = NavType.StringType
-                            }
-                        )
+                        //arguments = listOf(navArgument(name = "url") { type = NavType.StringType }),
+                        deepLinks = listOf(navDeepLink {
+                            uriPattern = "myapp://mungai-codes.com/details?url={url}"
+                        })
                     ) {
+
                         DetailsScreen(navController = navController)
                     }
                 }

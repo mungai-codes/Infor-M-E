@@ -6,7 +6,7 @@ import android.content.Context
 import androidx.core.app.NotificationCompat
 import com.mungai.domain.NotificationService
 import com.mungai.domain.repository.InformeRepository
-import com.mungai.notifications.NotificationServiceImpl
+import com.mungai.infor_m_e.notifications.NotificationServiceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

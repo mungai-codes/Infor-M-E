@@ -98,15 +98,35 @@ m
 =feature/settings/src/main/java/com/mungai/settings/UiState.kt,b\0\b0132ad08778ba0a8351b9719778d2a8752d0002
 t
 Dfeature/settings/src/main/java/com/mungai/settings/SettingsScreen.kt,7\1\71884d4d29d854c843c38aa8bcd20176f240458a
-g
-7app/src/main/java/com/mungai/infor_m_e/MainViewModel.kt,4\c\4c33fe876cb9950b3ee16cded07904056fba2738
-h
-8feature/home/src/main/java/com/mungai/home/HomeScreen.kt,1\d\1d4c4a222e2f92927272d93cdcf59fe503b751e3
 L
 core/domain/build.gradle.kts,f\6\f6899d750c55b14a51220f253d74a5cc3ad0be8b
 X
 (core/domain/src/main/AndroidManifest.xml,6\6\66240673cc54a62d9b1ed8912a3c75b2d261d37d
 f
 6app/src/main/java/com/mungai/infor_m_e/di/AppModule.kt,f\3\f3cd899c2782495dfa48150ed2a3d6a1f3e39964
+{
+Kcore/data/src/main/java/com/mungai/data/repository/InformeRepositoryImpl.kt,2\f\2f4adf9457b743bc6f925dd4c6a5e84dda52c65d
+_
+/core/common/src/main/res/drawable/read_more.xml,4\0\404bfa0d88222fe0661a60de7fe3ddac65a3e159
 w
 Gcore/data/src/main/java/com/mungai/data/repository/DataStoreRepoImpl.kt,4\a\4a648635d0a0e566a5b5ab848faa631e6891e7bd
+s
+Capp/src/main/java/com/mungai/infor_m_e/di/WorkManagerInitializer.kt,5\6\56ad673d3fda92e95068f666700b866bd4e354f3
+{
+Kcore/domain/src/main/java/com/mungai/domain/repository/InformeRepository.kt,a\a\aab1146d5dbd01c2b962b49e88eeecd31c16f7ec
+P
+ feature/details/build.gradle.kts,1\b\1ba198b32afc65b69c986d0017b0ed1ebc8326f6
+H
+core/ui/build.gradle.kts,3\7\37ac634a63a3a2598e24b30a6e1a0c494c981837
+O
+feature/search/build.gradle.kts,7\e\7e9540f8954928b72a77ffcfa0647fa1e9a2fc8c
+M
+feature/home/build.gradle.kts,b\e\be4e288f08b8cb3c35191b1a7d3e737f2a0057e5
+J
+core/data/build.gradle.kts,f\4\f4478630ebacf5eb78d8fddbf2b884e78aef0d50
+I
+gradle/libs.versions.toml,d\7\d7595319a0658be6f1ed500ad590d42e4b28bc4f
+Q
+!feature/settings/build.gradle.kts,7\d\7d71501d76f3d6a662ded100f9c495ce0d5b806d
+r
+Bcore/domain/src/main/java/com/mungai/domain/NotificationService.kt,3\d\3d1a1e717ea9b093db6bd8bc3f65a6b1959e0f1c

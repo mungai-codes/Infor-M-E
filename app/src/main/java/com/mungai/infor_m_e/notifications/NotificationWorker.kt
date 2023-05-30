@@ -1,4 +1,4 @@
-package com.mungai.notifications.worker
+package com.mungai.infor_m_e.notifications
 
 import android.app.NotificationManager
 import android.content.Context
